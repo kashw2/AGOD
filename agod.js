@@ -42,40 +42,51 @@ module.exports.GetAllData = () => {
  *
  */
 module.exports.GetDataset = (query) => {
+	let endpoint = `${apiEndpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${
+		query.publisher
+	}&region=${query.region}&start=${query.start}&limit=${query.limit}`;
+
 	if (query.dateFrom == '' || query.dateFrom == undefined) {
-		query.dateFrom = '1975-01-31T14:00:00.000Z';
+		endpoint = endpoint.replace('&dateFrom=undefined', '');
 	}
 
 	if (query.dateTo == '' || query.dateTo == undefined) {
-		let date = new Date();
+		if (query.dateFrom == '' || query.dateFrom == undefined) {
+			endpoint = endpoint.replace('&dateTo=undefined', '');
+		} else {
+			let date = new Date();
 
-		query.dateTo = date.toUTCString(date.getTime());
+			query.dateTo = date.toUTCString(date.getTime());
+		}
 	}
 
 	if (query.start == '' || query.start == undefined) {
-		query.start = '0';
+		endpoint = endpoint.replace('&start=undefined', '');
 	}
 
 	if (query.limit == '' || query.limit == undefined) {
-		query.limit = '10';
+		endpoint = endpoint.replace('&limit=undefined', '');
 	}
 
-	return fetch(
-		`${apiEndpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${query.publisher}&region=${
-			query.region
-		}&start=${query.start}&limit=${query.limit}`,
-		{
-			method: 'GET',
-			cache: 'no-cache',
-			credentials: 'same-origin',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			},
-			redirect: 'manual',
-			referrer: 'no-referrer-when-downgrade'
-		}
-	)
+	if (query.publisher == '' || query.publisher == undefined) {
+		endpoint = endpoint.replace('&publisher=undefined', '');
+	}
+
+	if (query.region == '' || query.region == undefined) {
+		endpoint = endpoint.replace('&region=undefined', '');
+	}
+
+	return fetch(endpoint, {
+		method: 'GET',
+		cache: 'no-cache',
+		credentials: 'same-origin',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json'
+		},
+		redirect: 'manual',
+		referrer: 'no-referrer-when-downgrade'
+	})
 		.then((response) => response.json())
 		.then((json) => {
 			return json;
