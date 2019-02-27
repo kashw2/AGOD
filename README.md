@@ -36,7 +36,8 @@ const query = {
 	limit: '10'
 };
 
-agod.GetDataset(query).then();
+agod.GetDataset(query).then((data) => console.log(data));
+
 ```
 ---
 
@@ -44,4 +45,4 @@ agod.GetDataset(query).then();
 
 I'm in no way affiliated with the Federal or State government or any other governing bodies of Australia and this is not an official API/API Wrapper.
 
-For info regarding the official API click [here](https://data.gov.au/api/v0/apidocs/index.htm)
+For info regarding the official API click [here](https://data.gov.au/api/v0/apidocs/index.html)
