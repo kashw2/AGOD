@@ -12,14 +12,14 @@ AGOD is an open sourced Australian Government Open Data API Wrapper that takes t
 
 Everything else can be installed by running 
 ```
-npm install.
+npm install
 ```
 
 ---
 
 ## Usage
 
-AGOD works on a promise based system and as such returns a promise for all of it's calls to the API via Fetch as such you will need to use the 'then' method to return your result.
+AGOD works on a promise based system and as such returns a promise for all of it's calls to the API via Fetch as such you will need to use the 'then' method to return your result. This will be updated with documentation in future releases.
 
 #### Example
 
