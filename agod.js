@@ -34,7 +34,7 @@ module.exports.GetAllData = () => {
 };
 
 /**
- * GetDataset()
+ * GetData()
  *
  * Sends a GET request to the API.
  *
@@ -43,7 +43,7 @@ module.exports.GetAllData = () => {
  * @returns Promise for API data.
  *
  */
-module.exports.GetDataset = (query) => {
+module.exports.GetData = (query) => {
 	let endpoint = `${apiEndpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${
 		query.publisher
 	}&region=${query.region}&start=${query.start}&limit=${query.limit}`;
@@ -417,4 +417,26 @@ module.exports.GetDatasetYears = (collection) => {
 	});
 
 	return datasetYears;
+};
+
+// Retrieving Facets Functionality
+
+/**
+ * GetFacets()
+ *
+ * Returns facets in a given collection/array.
+ *
+ * @param {Object[]} collection The collection/array that contains data returned by GetAllData() or GetData().
+ *
+ * @returns An array containing the facets of the collection/array.
+ *
+ */
+module.exports.GetFacets = (collection) => {
+	let facetsArray = [];
+
+	collection.facets.forEach((item) => {
+		facetsArray.push(item);
+	});
+
+	return facetsArray;
 };
