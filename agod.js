@@ -157,7 +157,7 @@ module.exports.GetDatasetByPublisher = (publisher) => {
 // Sorting Functionality
 
 /**
- * GetDatasetCatalogs()
+ * GetDatasetCataloger()
  *
  * Returns dataset catalog attributes in a given collection/array.
  *
@@ -166,7 +166,7 @@ module.exports.GetDatasetByPublisher = (publisher) => {
  * @returns An array containing the catalogs of the Datasets.
  *
  */
-module.exports.GetDatasetCatalogs = (collection) => {
+module.exports.GetDatasetCatalogers = (collection) => {
 	let datasetCatalogs = [];
 
 	collection.dataSets.forEach((item) => {
@@ -177,20 +177,20 @@ module.exports.GetDatasetCatalogs = (collection) => {
 };
 
 /**
- * GetDatasetContacts()
+ * GetDatasetContactPoints()
  *
- * Returns dataset contact attributes in a given collection/array.
+ * Returns dataset contactPoint attributes in a given collection/array.
  *
  * @param {Object[]} collection A collection/array of Datasets.
  *
- * @returns An array containing the contacts of the Datasets.
+ * @returns An array containing the contact points of the Datasets.
  *
  */
-module.exports.GetDatasetContacts = (collection) => {
+module.exports.GetDatasetContactPoints = (collection) => {
 	let datasetContacts = [];
 
 	collection.dataSets.forEach((item) => {
-		datasetContacts.push(item.contact);
+		datasetContacts.push(item.contactPoint);
 	});
 
 	return datasetContacts;
@@ -237,6 +237,26 @@ module.exports.GetDatasetDescriptions = (collection) => {
 };
 
 /**
+ * GetDatasetHasQualities()
+ *
+ * Returns dataset hasQuality attributes in a given collection/array.
+ *
+ * @param {Object[]} collection A collection/array of Datasets.
+ *
+ * @returns An array containing the boolean hasQualities of the Datasets.
+ *
+ */
+module.exports.GetDatasetHasQualities = (collection) => {
+	let datasetQualities = [];
+
+	collection.dataSets.forEach((item) => {
+		datasetQualities.push(item.hasQuality);
+	});
+
+	return datasetQualities;
+};
+
+/**
  * GetDatasetIdentifiers()
  *
  * Returns dataset identifer attributes in a given collection/array.
@@ -277,7 +297,7 @@ module.exports.GetDatasetDatesOfIssue = (collection) => {
 };
 
 /**
- * GetDatasetLandingPage()
+ * GetDatasetLandingPages()
  *
  * Returns dataset landing page attributes in a given collection/array.
  *
@@ -286,7 +306,7 @@ module.exports.GetDatasetDatesOfIssue = (collection) => {
  * @returns An array containing the landing pages of the Datasets.
  *
  */
-module.exports.GetDatasetLandingPage = (collection) => {
+module.exports.GetDatasetLandingPages = (collection) => {
 	let datasetLandingPages = [];
 
 	collection.dataSets.forEach((item) => {
@@ -303,7 +323,7 @@ module.exports.GetDatasetLandingPage = (collection) => {
  *
  * @param {Object[]} collection A collection/array of Datasets.
  *
- * @returns An array containing the modification datess of the Datasets.
+ * @returns An array containing the modification dates of the Datasets.
  *
  */
 module.exports.GetDatasetModificationDates = (collection) => {
@@ -314,6 +334,26 @@ module.exports.GetDatasetModificationDates = (collection) => {
 	});
 
 	return datasetModificationDates;
+};
+
+/**
+ * GetDatasetPublishers()
+ *
+ * Returns dataset publisher attributes in a given collection/array.
+ *
+ * @param {Object[]} collection A collection/array of Datasets.
+ *
+ * @returns An array containing the publisher of the Datasets.
+ *
+ */
+module.exports.GetDatasetPublishers = (collection) => {
+	let datasetPublishers = [];
+
+	collection.dataSets.forEach((item) => {
+		datasetPublishers.push(item.publisher);
+	});
+
+	return datasetPublishers;
 };
 
 /**
