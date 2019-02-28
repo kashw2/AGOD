@@ -357,6 +357,29 @@ module.exports.GetDatasetScores = (collection) => {
 };
 
 /**
+ * GetDatasetTemporal()
+ *
+ * Returns dataset temporal attributes in a given collection/array.
+ *
+ * @param {Object[]} collection A collection/array of Datasets.
+ *
+ * @returns An array containing the temporals of the Datasets.
+ *
+ */
+module.exports.GetDatasetTemporal = (collection) => {
+	let datasetTemporals = [];
+
+	collection.dataSets.forEach((item) => {
+		datasetTemporals.push(item.temporal);
+		datasetTemporals.push(item.temporal);
+		datasetTemporals.push(item.temporal);
+		datasetTemporals.push(item.temporal);
+	});
+
+	return datasetTemporals;
+};
+
+/**
  * GetDatasetTitles()
  *
  * Returns dataset title attributes in a given collection/array.
