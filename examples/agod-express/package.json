@@ -3,10 +3,16 @@
 	"version": "1.0.0",
 	"description": "Express AGOD example",
 	"main": "express.js",
-	"scripts": {},
+	"scripts": {
+		"start": "node express.js",
+		"start-watch": "nodemon express.js"
+	},
 	"author": "Keanu Ashwell",
 	"license": "ISC",
 	"dependencies": {
 		"express": "^4.16.4"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.10"
 	}
 }
