@@ -10,12 +10,12 @@ const query = {
 	limit: '10'
 };
 
-agod.GetData(query).then((data) => {
-	console.log(`Dataset Title: ${agod.GetDatasetTitles(data)[0]}`);
-	console.log(`Dataset Cataloger: ${agod.GetDatasetCatalogers(data)[0]}`);
-	console.log(`Dataset Department: ${agod.GetDatasetPublishers(data)[0].name}`);
-	console.log(`Dataset Issued At: ${agod.GetDatasetDatesOfIssue(data)[0]}`);
-	console.log(`Dataset Updated At: ${agod.GetDatasetModificationDates(data)[0]}`);
-	console.log(`Dataset Description:\n${agod.GetDatasetDescriptions(data)[0]}`);
-	console.log(`Dataset Rating: ${Math.floor(agod.GetDatasetScores(data)[0] / 1000)}`);
+agod.Data.GetData(query).then((data) => {
+	console.log(`Dataset Title: ${agod.Dataset.GetDatasetTitles(data)[0]}`);
+	console.log(`Dataset Cataloger: ${agod.Dataset.GetDatasetCatalogers(data)[0]}`);
+	console.log(`Dataset Department: ${agod.Dataset.GetDatasetPublishers(data)[0].name}`);
+	console.log(`Dataset Issued At: ${agod.Dataset.GetDatasetDatesOfIssue(data)[0]}`);
+	console.log(`Dataset Updated At: ${agod.Dataset.GetDatasetModificationDates(data)[0]}`);
+	console.log(`Dataset Description:\n${agod.Dataset.GetDatasetDescriptions(data)[0]}`);
+	console.log(`Dataset Rating: ${Math.floor(agod.Dataset.GetDatasetScores(data)[0] / 1000)}`);
 });

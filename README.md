@@ -24,7 +24,7 @@ AGOD works on a promise based system and as such returns a promise for all of it
 #### Example
 
 ``` javascript
-const agod = require('agod');
+const agod = require('agod.js');
 
 const query = {
 	search: 'Acid Sulfate Soils Risk',
@@ -36,8 +36,9 @@ const query = {
 	limit: '10'
 };
 
-agod.GetDataset(query).then((data) => console.log(data));
-
+agod.Data.GetData(query).then((data) => {
+	console.log(data);
+});
 ```
 ---
 
