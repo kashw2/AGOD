@@ -125,6 +125,36 @@ class Data {
 	}
 
 	/**
+	 * GetDatasetByDate()
+	 *
+	 * Sends a GET request to the API using the dateFrom and dateTo query fields/parameters.
+	 *
+	 * @param {String} dateFrom The string containing the start date of the datasets.
+	 * @param {String} dateTo The string containing the end date of the datasets.
+	 *
+	 * @returns Promise for API data.
+	 *
+	 */
+	GetDatasetByDate(dateFrom, dateTo) {
+		return fetch(`${apiEndpoint}?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
 	 * GetDatasetByPublisher()
 	 *
 	 * Sends a GET request to the API using the name of the publisher as a parameter.
@@ -136,6 +166,35 @@ class Data {
 	 */
 	GetDatasetByPublisher(publisher) {
 		return fetch(`${apiEndpoint}?publisher=${publisher}`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * GetDatasetByRegion()
+	 *
+	 * Sends a GET request to the API using the region query fields/parameters.
+	 *
+	 * @param {String} region The string containing the region of the data.
+	 *
+	 * @returns Promise for API data.
+	 *
+	 */
+	GetDatasetByRegion(region) {
+		return fetch(`${apiEndpoint}?region=${region}`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
