@@ -14,7 +14,7 @@ class Data {
 	 *
 	 */
 	GetAllData() {
-		return fetch(apiEndpoint, {
+		return fetch(`${apiEndpoint}?start=0&limit=1000`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
@@ -217,7 +217,7 @@ module.exports.Data = new Data();
 
 class Dataset {
 	/**
-	 * GetDatasetCataloger()
+	 * GetCatalogers()
 	 *
 	 * Returns dataset catalog attributes in a given collection/array.
 	 *
@@ -226,7 +226,7 @@ class Dataset {
 	 * @returns An array containing the catalogs of the Datasets.
 	 *
 	 */
-	GetDatasetCatalogers(collection) {
+	GetCatalogers(collection) {
 		let datasetCatalogs = [];
 
 		collection.dataSets.forEach((item) => {
@@ -237,7 +237,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetContactPoints()
+	 * GetContactPoints()
 	 *
 	 * Returns dataset contactPoint attributes in a given collection/array.
 	 *
@@ -246,7 +246,7 @@ class Dataset {
 	 * @returns An array containing the contact points of the Datasets.
 	 *
 	 */
-	GetDatasetContactPoints(collection) {
+	GetContactPoints(collection) {
 		let datasetContacts = [];
 
 		collection.dataSets.forEach((item) => {
@@ -257,7 +257,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetCreationDates()
+	 * GetCreationDates()
 	 *
 	 * Returns dataset creation attributes in a given collection/array.
 	 *
@@ -266,7 +266,7 @@ class Dataset {
 	 * @returns An array containing the creations of the Datasets.
 	 *
 	 */
-	GetDatasetCreationDates(collection) {
+	GetCreationDates(collection) {
 		let datasetCreationDates = [];
 
 		collection.dataSets.forEach((item) => {
@@ -277,7 +277,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetDescriptions()
+	 * GetDescriptions()
 	 *
 	 * Returns dataset description attributes in a given collection/array.
 	 *
@@ -286,7 +286,7 @@ class Dataset {
 	 * @returns An array containing the descriptions of the Datasets.
 	 *
 	 */
-	GetDatasetDescriptions(collection) {
+	GetDescriptions(collection) {
 		let datasetDescriptions = [];
 
 		collection.dataSets.forEach((item) => {
@@ -297,7 +297,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetHasQualities()
+	 * GetHasQualities()
 	 *
 	 * Returns dataset hasQuality attributes in a given collection/array.
 	 *
@@ -306,7 +306,7 @@ class Dataset {
 	 * @returns An array containing the boolean hasQualities of the Datasets.
 	 *
 	 */
-	GetDatasetHasQualities(collection) {
+	GetHasQualities(collection) {
 		let datasetQualities = [];
 
 		collection.dataSets.forEach((item) => {
@@ -317,7 +317,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetIdentifiers()
+	 * GetIdentifiers()
 	 *
 	 * Returns dataset identifer attributes in a given collection/array.
 	 *
@@ -326,7 +326,7 @@ class Dataset {
 	 * @returns An array containing the identifers of the Datasets.
 	 *
 	 */
-	GetDatasetIdentifiers(collection) {
+	GetIdentifiers(collection) {
 		let datasetIdentifiers = [];
 
 		collection.dataSets.forEach((item) => {
@@ -337,7 +337,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetDatesOfIssue()
+	 * GetDatesOfIssue()
 	 *
 	 * Returns dataset issued attributes in a given collection/array.
 	 *
@@ -346,7 +346,7 @@ class Dataset {
 	 * @returns An array containing the date of issue for the Datasets.
 	 *
 	 */
-	GetDatasetDatesOfIssue(collection) {
+	GetDatesOfIssue(collection) {
 		let datasetIssueds = [];
 
 		collection.dataSets.forEach((item) => {
@@ -357,7 +357,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetLandingPages()
+	 * GetLandingPages()
 	 *
 	 * Returns dataset landing page attributes in a given collection/array.
 	 *
@@ -366,7 +366,7 @@ class Dataset {
 	 * @returns An array containing the landing pages of the Datasets.
 	 *
 	 */
-	GetDatasetLandingPages(collection) {
+	GetLandingPages(collection) {
 		let datasetLandingPages = [];
 
 		collection.dataSets.forEach((item) => {
@@ -377,7 +377,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetModificationDates()
+	 * GetModificationDates()
 	 *
 	 * Returns dataset modification attributes in a given collection/array.
 	 *
@@ -386,7 +386,7 @@ class Dataset {
 	 * @returns An array containing the modification dates of the Datasets.
 	 *
 	 */
-	GetDatasetModificationDates(collection) {
+	GetModificationDates(collection) {
 		let datasetModificationDates = [];
 
 		collection.dataSets.forEach((item) => {
@@ -397,7 +397,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetPublishers()
+	 * GetPublishers()
 	 *
 	 * Returns dataset publisher attributes in a given collection/array.
 	 *
@@ -406,7 +406,7 @@ class Dataset {
 	 * @returns An array containing the publisher of the Datasets.
 	 *
 	 */
-	GetDatasetPublishers(collection) {
+	GetPublishers(collection) {
 		let datasetPublishers = [];
 
 		collection.dataSets.forEach((item) => {
@@ -417,7 +417,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetQualities()
+	 * GetQualities()
 	 *
 	 * Returns dataset quality attributes in a given collection/array.
 	 *
@@ -426,7 +426,7 @@ class Dataset {
 	 * @returns An array containing the qualities of the Datasets.
 	 *
 	 */
-	GetDatasetQualities(collection) {
+	GetQualities(collection) {
 		let datasetQualities = [];
 
 		collection.dataSets.forEach((item) => {
@@ -437,7 +437,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetScores()
+	 * GetScores()
 	 *
 	 * Returns dataset score attributes in a given collection/array.
 	 *
@@ -446,7 +446,7 @@ class Dataset {
 	 * @returns An array containing the scores of the Datasets.
 	 *
 	 */
-	GetDatasetScores(collection) {
+	GetScores(collection) {
 		let datasetScores = [];
 
 		collection.dataSets.forEach((item) => {
@@ -457,7 +457,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetTemporal()
+	 * GetTemporal()
 	 *
 	 * Returns dataset temporal attributes in a given collection/array.
 	 *
@@ -466,7 +466,7 @@ class Dataset {
 	 * @returns An array containing the temporals of the Datasets.
 	 *
 	 */
-	GetDatasetTemporal(collection) {
+	GetTemporal(collection) {
 		let datasetTemporals = [];
 
 		collection.dataSets.forEach((item) => {
@@ -480,7 +480,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetTitles()
+	 * GetTitles()
 	 *
 	 * Returns dataset title attributes in a given collection/array.
 	 *
@@ -489,7 +489,7 @@ class Dataset {
 	 * @returns An array containing the titles of the Datasets.
 	 *
 	 */
-	GetDatasetTitles(collection) {
+	GetTitles(collection) {
 		let datasetTitles = [];
 
 		collection.dataSets.forEach((item) => {
@@ -500,7 +500,7 @@ class Dataset {
 	}
 
 	/**
-	 * GetDatasetYears()
+	 * GetYears()
 	 *
 	 * Returns dataset year attributes in a given collection/array.
 	 *
@@ -509,7 +509,7 @@ class Dataset {
 	 * @returns An array containing the years of the Datasets.
 	 *
 	 */
-	GetDatasetYears(collection) {
+	GetYears(collection) {
 		let datasetYears = [];
 
 		collection.dataSets.forEach((item) => {
