@@ -1,0 +1,12 @@
+{
+	"name": "agod-express",
+	"version": "1.0.0",
+	"description": "Express AGOD example",
+	"main": "express.js",
+	"scripts": {},
+	"author": "Keanu Ashwell",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.16.4"
+	}
+}
