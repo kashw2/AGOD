@@ -1,6 +1,70 @@
 // Dependencies
 const fetch = require('node-fetch');
 
+class Authorization {
+	constructor() {
+		// Define the API endpoint
+		this.endpoint = 'https://www.data.gov.au/api/v0/auth/users';
+	}
+
+	/**
+	 * GetCurrentUser()
+	 *
+	 * Gets the current user from the whoami api enpoint.
+	 *
+	 * @returns Promise for API data.
+	 *
+	 */
+	GetCurrentUser() {
+		return fetch(`${this.endpoint}/whoami`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * GetUserById()
+	 *
+	 * Gets a user from the whoami api enpoint with a given userId.
+	 *
+	 * @param {Number} userId The id of he user to get data from.
+	 *
+	 * @returns Promise for API data.
+	 *
+	 */
+	GetUserById(userId) {
+		return fetch(`${this.endpoint}/${userId}`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+}
+
+module.exports.Authorization = new Authorization();
 
 class Data {
 	constructor() {
