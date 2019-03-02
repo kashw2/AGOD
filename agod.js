@@ -66,6 +66,136 @@ class Authorization {
 
 module.exports.Authorization = new Authorization();
 
+class Content {
+	constructor() {
+		// Define the API endpoint
+		this.endpoint = 'https://www.data.gov.au/api/v0/content';
+	}
+
+	/**
+	 * DeleteContent()
+	 *
+	 * Sends a Delete request for a specific piece of content to the API.
+	 *
+	 * Requires admin permission via the API.
+	 *
+	 * ? The API documentation states that this should be a DELETE request however a DELETE request returns invalid JSON.
+	 *
+	 * @param {String} contentId The content identifier that you wish to delete.
+	 *
+	 * @returns Promise for API delete request result.
+	 *
+	 */
+	DeleteContent(contentId) {
+		return fetch(`${this.endpoint}/${contentId}`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * GetAll()
+	 *
+	 * Gets all the content from the content api endpoint.
+	 *
+	 * ? The API documentation states that this should be a POST request however a POST request returns 404.
+	 *
+	 * @returns Promise for API content.
+	 *
+	 */
+	GetAll() {
+		return fetch(`${this.endpoint}/all`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * GetContent()
+	 *
+	 * Sends a get request for a specific piece of content to the API.
+	 *
+	 * @param {String} contentId The identifier for the content that you wish to retrieve.
+	 * @param {String} format The format for the content that you wish to retrieve.
+	 *
+	 * @returns Promise for API content
+	 *
+	 */
+	GetContent(contentId, format) {
+		return fetch(`${this.endpoint}/${contentId}.${format}`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * UpdateContent()
+	 *
+	 * Sends a PUT request to the API to update a specific piece of content.
+	 *
+	 * @param {String} contentId The identifier for the content that you wish to retrieve.
+	 *
+	 * @returns Promise for API put request result.
+	 *
+	 */
+	UpdateContent(contentId) {
+		return fetch(`${this.endpoint}/${contentId}`, {
+			method: 'PUT',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+}
+
+module.exports.Content = new Content();
+
 class Data {
 	constructor() {
 		// Define the API endpoint
