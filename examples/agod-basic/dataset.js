@@ -1,4 +1,4 @@
-const agod = require('../../agod.js');
+const agod = require('../../agod');
 
 const query = {
 	search: 'Acid Sulfate Soils Risk',

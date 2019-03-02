@@ -12,7 +12,7 @@ class Authorization {
 	 *
 	 * Gets the current user from the whoami api enpoint.
 	 *
-	 * @returns Promise for API data.
+	 * @returns Promise for API user.
 	 *
 	 */
 	GetCurrentUser() {
@@ -41,7 +41,7 @@ class Authorization {
 	 *
 	 * @param {Number} userId The id of he user to get data from.
 	 *
-	 * @returns Promise for API data.
+	 * @returns Promise for API user.
 	 *
 	 */
 	GetUserById(userId) {
@@ -203,14 +203,14 @@ class Data {
 	}
 
 	/**
-	 * GetAllData()
+	 * GetAll()
 	 *
 	 * Gets the latest dataset from the Australian Government's Open Data.
 	 *
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetAllData() {
+	GetAll() {
 		return fetch(`${this.endpoint}?start=0&limit=1000`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -719,7 +719,7 @@ class Dataset {
 
 module.exports.Dataset = new Dataset();
 
-class Facets {
+class Facet {
 	constructor() {
 		// Define the API endpoint
 		this.endpoint = 'https://www.data.gov.au/api/v0/search/facets';
@@ -764,14 +764,14 @@ class Facets {
 	 * @returns An array containing the facets of the collection/array.
 	 *
 	 */
-		let facetsArray = [];
 	GetFacetsFromCollection(collection) {
+		let facetArray = [];
 
 		collection.facets.forEach((item) => {
-			facetsArray.push(item);
+			facetArray.push(item);
 		});
 
-		return facetsArray;
+		return facetArray;
 	}
 }
 
