@@ -1,10 +1,13 @@
 // Dependencies
 const fetch = require('node-fetch');
 
-// Define the API endpoint
-const apiEndpoint = 'https://www.data.gov.au/api/v0/search/datasets';
 
 class Data {
+	constructor() {
+		// Define the API endpoint
+		this.endpoint = 'https://www.data.gov.au/api/v0/search/datasets';
+	}
+
 	/**
 	 * GetAllData()
 	 *
@@ -14,7 +17,7 @@ class Data {
 	 *
 	 */
 	GetAllData() {
-		return fetch(`${apiEndpoint}?start=0&limit=1000`, {
+		return fetch(`${this.endpoint}?start=0&limit=1000`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
@@ -43,17 +46,17 @@ class Data {
 	 *
 	 */
 	GetData(query) {
-		let endpoint = `${apiEndpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${
+		let endpoint = `${this.endpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${
 			query.publisher
 		}&region=${query.region}&start=${query.start}&limit=${query.limit}`;
 
 		if (query.dateFrom == '' || query.dateFrom == undefined) {
-			endpoint = endpoint.replace('&dateFrom=undefined', '');
+			endpoint = this.endpoint.replace('&dateFrom=undefined', '');
 		}
 
 		if (query.dateTo == '' || query.dateTo == undefined) {
 			if (query.dateFrom == '' || query.dateFrom == undefined) {
-				endpoint = endpoint.replace('&dateTo=undefined', '');
+				endpoint = this.endpoint.replace('&dateTo=undefined', '');
 			} else {
 				let date = new Date();
 
@@ -62,19 +65,19 @@ class Data {
 		}
 
 		if (query.start == '' || query.start == undefined) {
-			endpoint = endpoint.replace('&start=undefined', '');
+			endpoint = this.endpoint.replace('&start=undefined', '');
 		}
 
 		if (query.limit == '' || query.limit == undefined) {
-			endpoint = endpoint.replace('&limit=undefined', '');
+			endpoint = this.endpoint.replace('&limit=undefined', '');
 		}
 
 		if (query.publisher == '' || query.publisher == undefined) {
-			endpoint = endpoint.replace('&publisher=undefined', '');
+			endpoint = this.endpoint.replace('&publisher=undefined', '');
 		}
 
 		if (query.region == '' || query.region == undefined) {
-			endpoint = endpoint.replace('&region=undefined', '');
+			endpoint = this.endpoint.replace('&region=undefined', '');
 		}
 
 		return fetch(endpoint, {
@@ -106,7 +109,7 @@ class Data {
 	 *
 	 */
 	GetDatasetByName(name) {
-		return fetch(`${apiEndpoint}?query=${name}`, {
+		return fetch(`${this.endpoint}?query=${name}`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
@@ -136,7 +139,7 @@ class Data {
 	 *
 	 */
 	GetDatasetByDate(dateFrom, dateTo) {
-		return fetch(`${apiEndpoint}?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
+		return fetch(`${this.endpoint}?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
@@ -165,7 +168,7 @@ class Data {
 	 *
 	 */
 	GetDatasetByPublisher(publisher) {
-		return fetch(`${apiEndpoint}?publisher=${publisher}`, {
+		return fetch(`${this.endpoint}?publisher=${publisher}`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
@@ -194,7 +197,7 @@ class Data {
 	 *
 	 */
 	GetDatasetByRegion(region) {
-		return fetch(`${apiEndpoint}?region=${region}`, {
+		return fetch(`${this.endpoint}?region=${region}`, {
 			method: 'GET',
 			cache: 'no-cache',
 			credentials: 'same-origin',
