@@ -720,8 +720,42 @@ class Dataset {
 module.exports.Dataset = new Dataset();
 
 class Facets {
+	constructor() {
+		// Define the API endpoint
+		this.endpoint = 'https://www.data.gov.au/api/v0/search/facets';
+	}
+
 	/**
-	 * GetFacets()
+	 * GetFacet()
+	 *
+	 * Sends a GET request to the API to return options for a specific facet.
+	 *
+	 * @param {String} facetId id of the facet.
+	 *
+	 * @returns An array containing the hit count and options for a facet.
+	 *
+	 */
+	GetFacet(facetId) {
+		return fetch(`${this.endpoint}/${facetId}/options`, {
+			method: 'GET',
+			cache: 'no-cache',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			redirect: 'manual',
+			referrer: 'no-referrer-when-downgrade'
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				return json;
+			})
+			.catch((error) => console.error(error));
+	}
+
+	/**
+	 * GetFacetsFromCollection()
 	 *
 	 * Returns facets in a given collection/array.
 	 *
@@ -730,8 +764,8 @@ class Facets {
 	 * @returns An array containing the facets of the collection/array.
 	 *
 	 */
-	GetFacets(collection) {
 		let facetsArray = [];
+	GetFacetsFromCollection(collection) {
 
 		collection.facets.forEach((item) => {
 			facetsArray.push(item);
@@ -741,4 +775,4 @@ class Facets {
 	}
 }
 
-module.exports.Facets = new Facets();
+module.exports.Facet = new Facet();
