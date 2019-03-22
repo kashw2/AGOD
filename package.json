@@ -1,26 +1,26 @@
 {
-  "name": "australian-government-open-data",
-  "version": "1.0.0",
-  "description": "API Wrapper for the Australian Governments Open Data",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [
-    "Australian",
-    "Government",
-    "Government",
-    "Data",
-    "Data",
-    "Australia",
-    "Government",
-    "Open",
-    "Source",
-    "Open",
-    "Wrapper",
-    "API"
-  ],
-  "author": "Keanu Ashwell",
-  "license": "ISC",
-  "dependencies": {
-    "node-fetch": "^2.3.0"
-  }
+	"name": "australian-government-open-data",
+	"version": "1.0.0",
+	"description": "API Wrapper for the Australian Governments Open Data",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [
+		"Australian",
+		"Government",
+		"Government",
+		"Data",
+		"Data",
+		"Australia",
+		"Government",
+		"Open",
+		"Source",
+		"Open",
+		"Wrapper",
+		"API"
+	],
+	"author": "Keanu Ashwell",
+	"license": "ISC",
+	"dependencies": {
+		"node-fetch": "^2.3.0"
+	}
 }
