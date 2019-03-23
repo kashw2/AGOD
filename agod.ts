@@ -13,7 +13,7 @@ class Authorization {
 	 * @returns Promise for API user.
 	 *
 	 */
-	GetCurrentUser<Type>(): Promise<Type> {
+	GetCurrentUser(): Promise<Object> {
 		return fetch(`${this.endpoint}/whoami`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -42,7 +42,7 @@ class Authorization {
 	 * @returns Promise for API user.
 	 *
 	 */
-	GetUserById<Type>(userId: number): Promise<Type> {
+	GetUserById(userId: number): Promise<Object> {
 		return fetch(`${this.endpoint}/${userId}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -82,7 +82,7 @@ class Content {
 	 * @returns Promise for API delete request result.
 	 *
 	 */
-	DeleteContent<Type>(contentId): Promise<Type> {
+	DeleteContent(contentId): Promise<Object> {
 		return fetch(`${this.endpoint}/${contentId}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -111,7 +111,7 @@ class Content {
 	 * @returns Promise for API content.
 	 *
 	 */
-	GetAll<Type>(): Promise<Type> {
+	GetAll(): Promise<Object> {
 		return fetch(`${this.endpoint}/all`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -141,7 +141,7 @@ class Content {
 	 * @returns Promise for API content
 	 *
 	 */
-	GetContent<Type>(contentId: string, format: string): Promise<Type> {
+	GetContent(contentId: string, format: string): Promise<Object> {
 		return fetch(`${this.endpoint}/${contentId}.${format}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -170,7 +170,7 @@ class Content {
 	 * @returns Promise for API put request result.
 	 *
 	 */
-	UpdateContent<Type>(contentId: string): Promise<Type> {
+	UpdateContent(contentId: string): Promise<Object> {
 		return fetch(`${this.endpoint}/${contentId}`, {
 			method: 'PUT',
 			cache: 'no-cache',
@@ -204,7 +204,7 @@ class Data {
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetAll<Type>(): Promise<Type> {
+	GetAll(): Promise<Object> {
 		return fetch(`${this.endpoint}?start=0&limit=1000`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -234,7 +234,7 @@ class Data {
 	 *
 	 */
 
-	GetData<Type>(query: any): Promise<Type> {
+	GetData(query: any): Promise<Object> {
 		let endpoint: string = `${this.endpoint}?query=${query.search}&dateFrom=${query.dateFrom}&dateTo=${query.dateTo}&publisher=${
 			query.publisher
 		}&region=${query.region}&start=${query.start}&limit=${query.limit}`;
@@ -297,7 +297,7 @@ class Data {
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetDatasetByName<Type>(name: string): Promise<Type> {
+	GetDatasetByName(name: string): Promise<Object> {
 		return fetch(`${this.endpoint}?query=${name}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -327,7 +327,7 @@ class Data {
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetDatasetByDate<Type>(dateFrom: string, dateTo: string): Promise<Type> {
+	GetDatasetByDate(dateFrom: string, dateTo: string): Promise<Object> {
 		return fetch(`${this.endpoint}?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -356,7 +356,7 @@ class Data {
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetDatasetByPublisher<Type>(publisher: string): Promise<Type> {
+	GetDatasetByPublisher(publisher: string): Promise<Object> {
 		return fetch(`${this.endpoint}?publisher=${publisher}`, {
 			method: 'GET',
 			cache: 'no-cache',
@@ -385,7 +385,7 @@ class Data {
 	 * @returns Promise for API data.
 	 *
 	 */
-	GetDatasetByRegion<Type>(region: string): Promise<Type> {
+	GetDatasetByRegion(region: string): Promise<Object> {
 		return fetch(`${this.endpoint}?region=${region}`, {
 			method: 'GET',
 			cache: 'no-cache',
