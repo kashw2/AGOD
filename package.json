@@ -21,6 +21,6 @@
   "author": "Keanu Ashwell",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^3.0.0"
   }
 }
